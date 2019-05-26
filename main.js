@@ -1,31 +1,26 @@
 'use strict;'
 const assert = require('assert');
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
 
 const arrOfPeople = [{
     id: 2,
-    name: "Saitama",
-    age: 25,
-    skillSet: "one punch man",
-    placeBorn: "City-Z"
+    name: "Charles Young",
+    age: 55,
+    skillSet: "welding",
+    placeBorn: "Omaha, Nebraska"
   },
   {
     id: 3,
-    name: "Genos",
-    age: 19,
-    skillSet: "cyborg",
-    placeBorn: "City-Z"
+    name: "Judy Twilight",
+    age: 35,
+    skillSet: "fishing",
+    placeBorn: "Louisville, Kentucky"
   },
   {
     id: 4,
-    name: "Watchdog Man",
+    name: "Cynthia Doolittle",
     age: 20,
-    skillSet: "guardian of q city",
-    placeBorn: "City-Q"
+    skillSet: "tic tac toe",
+    placeBorn: "Pawnee, Texas"
   },
   {
     id: 5,
@@ -64,27 +59,27 @@ const redTeam = []
 
 class player {
   constructor(id, name, age, skillSet, placeBorn) {
-    this.id = id;
-    this.name = name;
-    this.age = age;
-    this.skillSet = skillSet;
-    this.placeBorn = placeBorn;
-    this.team = null
+      this.id = id;
+      this.name = name;
+      this.age = age;
+      this.skillSet = skillSet;
+      this.placeBorn - placeBorn;
+      this.team = null;
   }
 }
 
 class Team {
   constructor(name, mascot, color) {
-    this.name = name;
-    this.mascot = mascot;
-    this.color = color;
+      this.name = name;
+      this.mascot = mascot;
+      this.color = color;
   }
 }
 
 const signUpList = (element) => {
-// your code here
+
 }
 
 const makePlayer = (id, element) => {
-// your code here
+ 
 }
