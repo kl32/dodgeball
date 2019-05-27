@@ -1,7 +1,8 @@
-'use strict;'
-const assert = require('assert');
+'use strict';
 
-const arrOfPeople = [{
+
+const arrOfPeople = [
+  {
     id: 2,
     name: "Charles Young",
     age: 55,
@@ -49,24 +50,52 @@ const arrOfPeople = [{
     age: 32,
     skillSet: "jump rope",
     placeBorn: "New Orleans, Louisiana"
-  },
-]
+  }
+];
 
 
-const listOfPlayers = []
-const blueTeam = []
-const redTeam = []
+const listOfPlayers = [];
+const blueTeam = [];
+const redTeam = [];
 
-class player {
-  constructor(id, name, age, skillSet, placeBorn) {
-      this.id = id;
-      this.name = name;
-      this.age = age;
-      this.skillSet = skillSet;
-      this.placeBorn - placeBorn;
-      this.team = null;
+class Player {
+  constructor(player) {
+      this.id = player.id;
+      this.name = player.name;
+      this.age = player.age;
+      this.skillSet = player.skillSet;
+      this.placeBorn = player.placeBorn;
   }
 }
+
+const players = arrOfPeople.map(player => new Player(player))
+
+const listPeopleChoices = () => {
+  const listElement = document.getElementById('people')
+  arrOfPeople.map(person => {
+    const li = document.createElement("li")
+    const button = document.createElement("button")
+    button.innerHTML = "Make Player"
+    button.addEventListener('click', function() {makePlayer(person.id)} )
+    li.appendChild(button)
+    li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
+    listElement.append(li)
+  })
+}
+
+class dodgeBallPlayer extends Player {
+  constructor(canThrow, canDodge, isHealthy, hasPaid, yearsOfExperience) {
+    super(player);
+    this.canThrowBall = player.canThrowBall;
+    this.canDodgeBall = player.canDodgeBall;
+    this.hasPaid = player.hasPaid;
+    this.signUpList = player.isHealthy;
+    this.yearsExperience = player.yearsExperience;
+  }
+}
+
+
+
 
 class Team {
   constructor(name, mascot, color) {
@@ -77,9 +106,21 @@ class Team {
 }
 
 const signUpList = (element) => {
-
+  const listElement = document.getElementById('playersList')
+  listOfPlayers.map(person => {
+    const li = document.createElement("li")
+    const button = document.createElement("button")
+    button.innerHTML = "Make Player"
+    button.addEventListener('click', function() {makePlayer(person.id)} )
+    li.appendChild(button)
+    li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
+    listElement.append(li)
+  })
 }
 
-const makePlayer = (id, element) => {
- 
+
+const makePlayer = (id) => {
+  listOfPlayers.push(players[id]);
+  document.getElementById('playersList').remove(players.id);
+  console.log(listOfPlayers);
 }
