@@ -1,6 +1,5 @@
 'use strict';
 
-
 const arrOfPeople = [
   {
     id: 2,
@@ -50,25 +49,51 @@ const arrOfPeople = [
     age: 32,
     skillSet: "jump rope",
     placeBorn: "New Orleans, Louisiana"
-  }
-];
+  },
+]
 
-
-const listOfPlayers = [];
-const blueTeam = [];
-const redTeam = [];
+const listOfPlayers = []
+const blueTeam = []
+const redTeam = []
 
 class Player {
-  constructor(player) {
-      this.id = player.id;
-      this.name = player.name;
-      this.age = player.age;
-      this.skillSet = player.skillSet;
-      this.placeBorn = player.placeBorn;
+  constructor(id, name, age, skillSet, placeBorn) {
+    this.id = id;
+    this.name = name;
+    this.age = age;
+    this.skillSet = skillSet;
+    this.placeBorn  = placeBorn;  
+    this.team = null;
   }
 }
 
-const players = arrOfPeople.map(player => new Player(player))
+class dodgeBallPlayer extends Player {
+  constructor (canThrow, canDodge, isHealthy, hasPaid, yearsOfExperience, id, name, age, skillSet, placeBorn) {
+    super  (id, name, age, skillSet, placeBorn);
+    this.canThrow = canThrow;
+    this.canDodge = canDodge;
+    this.isHealthy = isHealthy;
+    this.hasPaid = hasPaid;
+    this.yearsOfExperience = yearsOfExperience;
+  }
+
+  chooseTeam(validPlayer) {
+    team.validPlayer.push(this.arrOfPeople[id]);
+  }
+}
+
+class Team {
+  constructor(name, mascot, color) {
+    this.name = name;
+    this.mascot = mascot;
+    this.color = color;
+    this.validPlayer = [];
+  }
+}
+
+const teamOne = new Team("Anaheim Ducks", "duck", "blue");
+const teamTwo = new Team("NY Rangers", "ranger", "red");
+
 
 const listPeopleChoices = () => {
   const listElement = document.getElementById('people')
@@ -83,44 +108,13 @@ const listPeopleChoices = () => {
   })
 }
 
-class dodgeBallPlayer extends Player {
-  constructor(canThrow, canDodge, isHealthy, hasPaid, yearsOfExperience) {
-    super(player);
-    this.canThrowBall = player.canThrowBall;
-    this.canDodgeBall = player.canDodgeBall;
-    this.hasPaid = player.hasPaid;
-    this.signUpList = player.isHealthy;
-    this.yearsExperience = player.yearsExperience;
-  }
-}
-
-
-
-
-class Team {
-  constructor(name, mascot, color) {
-      this.name = name;
-      this.mascot = mascot;
-      this.color = color;
-  }
-}
-
 const signUpList = (element) => {
-  const listElement = document.getElementById('playersList')
-  listOfPlayers.map(person => {
-    const li = document.createElement("li")
-    const button = document.createElement("button")
-    button.innerHTML = "Make Player"
-    button.addEventListener('click', function() {makePlayer(person.id)} )
-    li.appendChild(button)
-    li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
-    listElement.append(li)
-  })
-}
 
+  console.log(listOfPlayers)
+}
 
 const makePlayer = (id) => {
-  listOfPlayers.push(players[id]);
-  document.getElementById('playersList').remove(players.id);
-  console.log(listOfPlayers);
+  listOfPlayers.push(arrOfPeople[id]);
+  document.getElementById("players").after(people);
+  console.log(`li ${id} was clicked!`)
 }
